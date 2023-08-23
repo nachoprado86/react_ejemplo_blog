@@ -1,7 +1,7 @@
 
 
 
-function Formulario ({onSubmit}) {
+function Formulario ({onSubmit, oldTitle='', oldContent=''}) {
     const hadleSubmit = (e) => {
         e.preventDefault();
         let titulo = e.target.title.value;
@@ -17,11 +17,11 @@ function Formulario ({onSubmit}) {
         // EL onSubmit es un evento que sirve junto al hadleSubmit para enviar los datos del formulario y con el console.log loguear los datos.
         <form onSubmit = {hadleSubmit}> 
             <label>titulo</label>
-            <input type="text" id= "title"/>
+            <input type="text" id= "title" defaultValue={oldTitle}/>
             <br/>
             <br/>
             <label>contenido</label>
-            <textarea id="content"></textarea>
+            <textarea id="content" defaultValue={oldContent}></textarea>
             <br/>
             <br/>
             <button type="submit">enviar</button>

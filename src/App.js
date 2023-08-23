@@ -18,6 +18,14 @@ function App() {
     oldPosts.splice(index, 1);
     setPosts(oldPosts);
   }
+
+  const editPost = (index, title, content) => {
+    let oldPosts = [...posts];
+    oldPosts[index].title = title;
+    oldPosts[index].content = content;
+    setPosts(oldPosts);
+  }
+
   return(
     <section>
       <div className="App">
@@ -26,7 +34,14 @@ function App() {
       </div>
       <div id="posts">
         {posts.map((post, index) => (
-          <Post key={index} title={post.title} content={post.content} />
+          <Post 
+            key={index} 
+            title={post.title} 
+            content={post.content} 
+            id={index}
+            onDelete={deletePost}
+            onEdit={editPost}
+          />
         ) )}
       </div>
     </section>
