@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Formulario from './Form';
+import Post from './Post';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [posts, setPosts] = useState([]);
+
+  const newPost = (title, content) => {
+    const createPost = { title, content };
+    let oldPosts = [...posts];
+    oldPosts.push(createPost);
+    setPosts(oldPosts);
+    
+  }
+  const deletePost = (index) => {
+    let oldPosts = [...posts];
+    oldPosts.splice(index, 1);
+    setPosts(oldPosts);
+  }
+  return(
+    <section>
+      <div className="App">
+        <h1>BLOG</h1>
+        <Formulario onSubmit={newPost}/>
+      </div>
+      <div id="posts">
+        {posts.map((post, index) => (
+          <Post key={index} title={post.title} content={post.content} />
+        ) )}
+      </div>
+    </section>
+  )
+  }
+  
 
 export default App;
