@@ -23,7 +23,7 @@ function Post ({title, content, id, onDelete, onEdit}) {
     
     return (
         <div className="post">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <p>{content}</p>
             <button onClick={() => onDelete(id)}>Eliminar</button>
             <button onClick={handleEdit}>Editar</button>

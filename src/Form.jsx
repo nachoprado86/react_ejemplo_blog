@@ -16,11 +16,11 @@ function Formulario ({onSubmit, oldTitle='', oldContent=''}) {
     return (
         // EL onSubmit es un evento que sirve junto al hadleSubmit para enviar los datos del formulario y con el console.log loguear los datos.
         <form onSubmit = {hadleSubmit}> 
-            <label>titulo</label>
+            <label>TÍTULO:</label>
             <input type="text" id= "title" defaultValue={oldTitle}/>
             <br/>
             <br/>
-            <label>contenido</label>
+            <label>CONTENIDO:</label>
             <textarea id="content" defaultValue={oldContent}></textarea>
             <br/>
             <br/>

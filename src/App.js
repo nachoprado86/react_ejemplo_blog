@@ -29,7 +29,7 @@ function App() {
   return(
     <section>
       <div className="App">
-        <h1>BLOG</h1>
+        <h1>BLOG: Haciendo Betis en Euskadi (Béticos del Norte).</h1>
         <Formulario onSubmit={newPost}/>
       </div>
       <div id="posts">
